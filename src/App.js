@@ -1,15 +1,12 @@
 import { useEffect } from "react";
 import "./App.css";
-const tg = window.Telegram.WebApp;
+import { useTelegram } from "../../hooks/useTelegram";
 
 function App() {
+  const { tg, onClose } = useTelegram();
   useEffect(() => {
     tg.ready(); // метод сообщает, что приложение полностью проинициализировалось.
   }, []);
-
-  const onClose = () => {
-    tg.close();
-  };
 
   return (
     <div className="App">
